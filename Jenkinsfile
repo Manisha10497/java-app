@@ -12,8 +12,10 @@ pipeline {
     stages {
 
         stage('Checkout Code') {
-            steps {
-                git 'https://github.com/Manisha10497/java-app.git'
+    steps {
+        git 'https://github.com/Manisha10497/java-app.git'
+    }
+}
             }
         }
 
