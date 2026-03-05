@@ -11,14 +11,6 @@ pipeline {
 
     stages {
 
-        stage('Checkout Code') {
-    steps {
-        git 'https://github.com/Manisha10497/java-app.git'
-    }
-}
-            }
-        }
-
         stage('Build Maven') {
             steps {
                 sh 'mvn clean package'
