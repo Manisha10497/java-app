@@ -5,25 +5,12 @@ pipeline {
         maven 'Maven'
     }
 
-    environment {
-        SONAR_HOME = tool 'SonarScanner'
-    }
-
     stages {
 
         stage('Build Maven') {
             steps {
                 sh 'mvn clean package'
             }
-        }
-
-        stage('SonarQube Analysis') {
-    steps {
-        withSonarQubeEnv('SonarQube') {
-            sh 'mvn sonar:sonar'
-        }
-    }
-}
         }
 
         stage('Build Docker Image') {
@@ -37,4 +24,6 @@ pipeline {
                 sh 'docker run -d -p 8081:8080 java-app'
             }
         }
+
     }
+}
